@@ -9,7 +9,7 @@ services:
     ports:
       - "5433:5433"
 
-  prefect:
+ # prefect:
     image: prefecthq/prefect:0.15.9
     environment:
       PREFECT__BACKEND: "server"
