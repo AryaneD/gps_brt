@@ -1,13 +1,13 @@
-version: '3'
+version: '3.7'
 services:
   db:
-    image: postgres:latest
+    image: bitnami/postgres:latest
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
       POSTGRES_DB: brt_db
     ports:
-      - "5433:5432"
+      - "5433:5433"
 
   prefect:
     image: prefecthq/prefect:0.15.9
@@ -27,4 +27,5 @@ services:
       - .:/app
       - C:/Users/aryan/.dbt:/root/.dbt  # <-- Adiciona o profiles.yml no container
     command: ["dbt", "run"]
+
 
