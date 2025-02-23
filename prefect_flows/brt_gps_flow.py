@@ -16,8 +16,8 @@ def fetch_data():
 def process_data(data):
     df = pd.json_normalize(data)
     filename = f"brt_data_{datetime.now().strftime('%Y%m%d%H%M%S')}.csv"
-    #df.to_csv(filename, index=False)
-    df.to_csv("arquivo.csv", encoding="utf-8", index=False)
+    df.to_csv(filename, index=False)
+    #df.to_csv(filename, encoding="utf-8", index=False)
     return filename
 
 # Defina a tarefa para carregar os dados no PostgreSQL
