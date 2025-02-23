@@ -24,6 +24,8 @@ def process_data(data):
 def load_to_postgresql(csv_file):
     df = pd.read_csv(csv_file)
     engine = create_engine('postgresql://user:password@localhost:5433/brt_db')
+    #engine = create_engine("postgresql+psycopg2://user:password@localhost:5433/brt_db?client_encoding=utf8")
+    df = df.applymap(lambda x: x.encode('utf-8', 'ignore').decode('utf-8') if isinstance(x, str) else x)
     df.to_sql('brt_gps_data', con=engine, if_exists='append', index=False)
 
 # Crie o flow

@@ -1,0 +1,11 @@
+brt_db:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: user
+      password: password
+      port: 5432
+      dbname: brt_db
+      schema: public
