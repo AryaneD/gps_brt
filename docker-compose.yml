@@ -10,19 +10,19 @@ services:
       - "5433:5433"
 
  # prefect:
-    image: prefecthq/prefect:0.15.9
-    environment:
-      PREFECT__BACKEND: "server"
-    ports:
-      - "4200:4200"
-    volumes:
-      - .:/app
-    command: ["prefect", "server", "start"]
+    #image: prefecthq/prefect:0.15.9
+    #environment:
+      #PREFECT__BACKEND: "server"
+    #ports:
+    #  - "4200:4200"
+    #volumes:
+    #  - .:/app
+    #command: ["prefect", "server", "start"]
 
-  dbt:
-    image: fishtownanalytics/dbt
-    environment:
-      DBT_PROFILES_DIR: /root/.dbt
-    volumes:
-      - .:/app
-    command: ["dbt", "run"]
+  #dbt:
+    #image: fishtownanalytics/dbt
+    #environment:
+    #  DBT_PROFILES_DIR: /root/.dbt
+    #volumes:
+    #  - .:/app
+    #command: ["dbt", "run"]
