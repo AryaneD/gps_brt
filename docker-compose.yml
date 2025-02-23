@@ -7,22 +7,24 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: brt_db
     ports:
-      - "5433:5433"
+      - "5433:5432"
 
- # prefect:
-    #image: prefecthq/prefect:0.15.9
-    #environment:
-      #PREFECT__BACKEND: "server"
-    #ports:
-    #  - "4200:4200"
-    #volumes:
-    #  - .:/app
-    #command: ["prefect", "server", "start"]
+  prefect:
+    image: prefecthq/prefect:0.15.9
+    environment:
+      PREFECT__BACKEND: "server"
+    ports:
+      - "4200:4200"
+    volumes:
+      - .:/app
+    command: ["prefect", "server", "start"]
 
-  #dbt:
-    #image: fishtownanalytics/dbt
-    #environment:
-    #  DBT_PROFILES_DIR: /root/.dbt
-    #volumes:
-    #  - .:/app
-    #command: ["dbt", "run"]
+  dbt:
+    image: postgres
+    environment:
+      DBT_PROFILES_DIR: /root/.dbt
+    volumes:
+      - .:/app
+      - C:/Users/aryan/.dbt:/root/.dbt  # <-- Adiciona o profiles.yml no container
+    command: ["dbt", "run"]
+

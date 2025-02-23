@@ -3,9 +3,9 @@ brt_db:
   outputs:
     dev:
       type: postgres
-      host: localhost
+      host: db
       user: user
       password: password
-      port: 5432
+      port: 5433
       dbname: brt_db
       schema: public
