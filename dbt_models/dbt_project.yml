@@ -1,0 +1,13 @@
+name: brt_gps_project
+version: '1.0'
+config-version: 2
+
+# Configuração do modelo
+model-paths: ["dbt_models"]
+target-path: "target"
+analysis-paths: "analyses"
+test-paths: "tests"
+seed-paths: "seeds"
+snapshot-paths: "snapshots"
+
+profile: brt_db  # Nome do perfil no profiles.yml
