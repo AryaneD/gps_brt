@@ -19,7 +19,8 @@ def fetch_data():
 # Defina a tarefa para processar os dados e salvar em CSV
 @task
 def process_data(data):
-    df = pd.json_normalize(data)
+    # Normalizando os dados e convertendo tudo para string
+    df = pd.json_normalize(data).astype(str)
     filename = f"brt_data_{datetime.now().strftime('%Y%m%d%H%M%S')}.csv"
     try:
         # Salvando o arquivo CSV com a codificação UTF-8 para garantir que caracteres especiais sejam corretamente tratados
@@ -32,8 +33,8 @@ def process_data(data):
 @task
 def load_to_postgresql(csv_file):
     try:
-        # Lendo o arquivo CSV com a codificação UTF-8 para garantir a correta leitura dos caracteres especiais
-        df = pd.read_csv(csv_file, encoding='utf-8')
+        # Lendo o arquivo CSV com a codificação UTF-8 e forçando a conversão das colunas para string
+        df = pd.read_csv(csv_file, encoding='utf-8').astype(str)
         engine = create_engine('postgresql://user:password@127.0.0.1:5433/brt_db')
         # Especificando os tipos de dados de acordo com o DataFrame
         df.to_sql('brt_gps_data', con=engine, if_exists='append', index=False)
