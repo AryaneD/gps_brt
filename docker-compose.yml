@@ -1,15 +1,14 @@
-version: '3.7'
+version: '3'
 services:
   db:
-    image: postgresql:latest
+    image: postgres:latest
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
       POSTGRES_DB: brt_db
     ports:
       - "5433:5433"
-    volumes:
-      -brt_db_data:postgresql
+
   prefect:
     image: prefecthq/prefect:0.15.9
     environment:
@@ -29,6 +28,4 @@ services:
       - C:/Users/aryan/.dbt:/root/.dbt  # <-- Adiciona o profiles.yml no container
     command: ["dbt", "run"]
 
-volumes:
-  brt_db_data:
 

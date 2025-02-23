@@ -23,7 +23,7 @@ def process_data(data):
 @task
 def load_to_postgresql(csv_file):
     df = pd.read_csv(csv_file)
-    engine = create_engine('postgresql://user:password@host.docker.internal:5432/brt_db')
+    engine = create_engine('postgresql://user:password@127.0.0.1:5433:5433/brt_db')
     df.to_sql('brt_gps_data', con=engine, if_exists='append', index=False)
 
 # Crie o flow
