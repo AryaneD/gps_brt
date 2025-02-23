@@ -28,4 +28,3 @@ services:
       - C:/Users/aryan/.dbt:/root/.dbt  # <-- Adiciona o profiles.yml no container
     command: ["dbt", "run"]
 
-
