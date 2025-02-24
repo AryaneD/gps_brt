@@ -5,7 +5,7 @@ WITH veiculos_extracao AS (
         (veiculos->0->>'latitude')::FLOAT AS latitude,
         (veiculos->0->>'longitude')::FLOAT AS longitude,
         (veiculos->0->>'velocidade')::FLOAT AS velocidade
-    FROM {{ ref('brt_gps_data') }}
+    FROM {{ source('public', 'brt_gps_data') }}
 )
 SELECT
     id,
