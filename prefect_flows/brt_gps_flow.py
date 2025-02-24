@@ -37,8 +37,7 @@ def process_data(data):
 def load_to_postgresql(csv_file):
     try:
         # Carregar o CSV com a codificação ISO-8859-1
-        df = pd.read_csv(csv_file, encoding='ISO-8859-1')
-        
+        df = pd.read_csv(csv_file, encoding='utf-8')
         # Remover caracteres especiais de todas as colunas
         df = df.applymap(lambda x: remove_special_characters(str(x)) if isinstance(x, str) else x)
         
@@ -49,9 +48,7 @@ def load_to_postgresql(csv_file):
         df.to_sql('brt_gps_data', con=engine, if_exists='append', index=False)
     except Exception as e:
         raise ValueError(f"Erro ao carregar os dados no PostgreSQL: {e}")
-    finally:
-        # Fechar a conexão com o banco de dados, se necessário
-        engine.dispose()
+
 
 # Crie o flow
 with Flow("brt_gps_flow") as flow:
