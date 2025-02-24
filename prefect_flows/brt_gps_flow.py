@@ -1,61 +1,55 @@
 from prefect import task, Flow
 import requests
 import pandas as pd
+import re
 from datetime import datetime
 from sqlalchemy import create_engine
-import re
 
-# Função para remover caracteres especiais
-def remove_special_characters(text):
-    # Usando expressão regular para manter apenas letras, números e espaços
-    return re.sub(r'[^a-zA-Z0-9\s]', '', text)
-
-# Defina a tarefa para capturar os dados
+# Tarefa para buscar os dados da API
 @task
 def fetch_data():
     url = "https://dados.mobilidade.rio/gps/brt"
     try:
         response = requests.get(url)
-        response.raise_for_status()  # Levanta erro para status HTTP não OK
+        response.raise_for_status()
         return response.json()
     except requests.exceptions.RequestException as e:
         raise ValueError(f"Erro ao obter dados da API: {e}")
 
-# Defina a tarefa para processar os dados e salvar em CSV
+# Tarefa para processar os dados
 @task
 def process_data(data):
-    df = pd.json_normalize(data)
-    filename = f"brt_data_{datetime.now().strftime('%Y%m%d%H%M%S')}.csv"
-    try:
-        df.to_csv(filename, index=False)
-        return filename
-    except Exception as e:
-        raise ValueError(f"Erro ao salvar o arquivo CSV: {e}")
+    # Extraindo a lista de veículos corretamente
+    df = pd.json_normalize(data, "veiculos")
 
-# Defina a tarefa para carregar os dados no PostgreSQL
+    # Convertendo a coluna 'dataHora' de milissegundos para datetime
+    df["dataHora"] = pd.to_datetime(df["dataHora"], unit="ms")
+
+    # Gerando o nome do arquivo CSV
+    filename = f"brt_data_{datetime.now().strftime('%Y%m%d%H%M%S')}.csv"
+    df.to_csv(filename, index=False)
+
+    return filename
+
+# Tarefa para carregar os dados no PostgreSQL
 @task
 def load_to_postgresql(csv_file):
     try:
-        # Carregar o CSV com a codificação ISO-8859-1
+        engine = create_engine("postgresql://user:password@127.0.0.1:5433/brt_db?client_encoding=utf8")
+        # Lendo o CSV e carregando para o PostgreSQL
         df = pd.read_csv(csv_file, encoding='utf-8')
-        # Remover caracteres especiais de todas as colunas
-        df = df.applymap(lambda x: remove_special_characters(str(x)) if isinstance(x, str) else x)
-        
-        # Conectar ao PostgreSQL
-        engine = create_engine('postgresql://user:password@127.0.0.1:5433/brt_db')
-        
-        # Carregar o DataFrame no banco de dados
-        df.to_sql('brt_gps_data', con=engine, if_exists='append', index=False)
+        df.to_sql("brt_gps_data", engine, if_exists="append", index=False)
+
     except Exception as e:
-        raise ValueError(f"Erro ao carregar os dados no PostgreSQL: {e}")
+        raise ValueError(f"Erro ao carregar dados no PostgreSQL: {e}")
 
-
-# Crie o flow
+# Criando o fluxo no Prefect
 with Flow("brt_gps_flow") as flow:
     data = fetch_data()
     filename = process_data(data)
     load_to_postgresql(filename)
 
-# Rodando o flow
+# Rodando o fluxo
 if __name__ == "__main__":
     flow.run()
+
