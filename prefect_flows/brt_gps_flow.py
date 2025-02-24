@@ -1,16 +1,13 @@
 from prefect import Flow, task
 import requests
 import pandas as pd
-from datetime import datetime
 from sqlalchemy import create_engine
-import os
 from prefect.schedules import IntervalSchedule
-import time
 
 # Schedule: Execute a cada minuto
 schedule = IntervalSchedule(interval=pd.Timedelta(minutes=1))
 
-# Extração
+# Extração de dados diretamente da API
 @task
 def fetch_data():
     try:
@@ -21,25 +18,17 @@ def fetch_data():
     except requests.exceptions.RequestException as e:
         raise ValueError(f"Erro ao buscar dados: {e}")
 
-# Processamento
-@task
-def process_data(data):
-    try:
-        df = pd.json_normalize(data)
-        filename = f"brt_data_{datetime.now().strftime('%Y%m%d%H%M%S')}.csv"
-        df.to_csv(filename, index=False)
-        return filename
-    except Exception as e:
-        raise ValueError(f"Erro ao processar dados: {e}")
-
 # Carregamento incremental para o PostgreSQL
 @task
-def load_to_postgresql(csv_file):
+def load_to_postgresql(data):
     try:
-        if not os.path.exists(csv_file):
-            raise FileNotFoundError(f"O arquivo {csv_file} não foi encontrado.")
-        df = pd.read_csv(csv_file)
+        # Normalizando os dados JSON para um DataFrame
+        df = pd.json_normalize(data)
+        
+        # Criar a conexão com o PostgreSQL usando SQLAlchemy
         engine = create_engine('postgresql://user:password@localhost:5433/postgres?client_encoding=utf8')
+        
+        # Carregar os dados para a tabela do PostgreSQL (incremental)
         df.to_sql('brt_gps_data', con=engine, if_exists='append', index=False, method='multi', encoding='utf-8')
 
     except Exception as e:
@@ -47,9 +36,11 @@ def load_to_postgresql(csv_file):
 
 # Criação do fluxo do Prefect
 with Flow("brt_gps_flow", schedule=schedule) as flow:
+    # Passo de extração
     data = fetch_data()
-    filename = process_data(data)
-    load_to_postgresql(filename)
+    
+    # Passo de carregamento para o banco de dados
+    load_to_postgresql(data)
 
 # Rodando o fluxo
 if __name__ == "__main__":
