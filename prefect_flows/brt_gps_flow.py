@@ -1,8 +1,8 @@
 from prefect import Flow, task
 import requests
 import pandas as pd
+from sqlalchemy import create_engine, Table, MetaData
 from datetime import datetime
-from sqlalchemy import create_engine
 import os
 from prefect.schedules import IntervalSchedule
 
@@ -16,7 +16,7 @@ def fetch_data():
         url = "https://dados.mobilidade.rio/gps/brt"
         response = requests.get(url)
         response.raise_for_status()  # Garante que uma exceção seja gerada para códigos de status de erro
-        return response.json()  # Retorna os dados em formato JSON
+        return response.json()
     except requests.exceptions.RequestException as e:
         raise ValueError(f"Erro ao buscar dados: {e}")
 
@@ -26,16 +26,20 @@ def load_to_postgresql(data):
     try:
         # Criar a conexão com o PostgreSQL usando SQLAlchemy
         engine = create_engine('postgresql://user:password@localhost:5433/postgres?client_encoding=utf8')
+        metadata = MetaData()
+        conn = engine.connect()
 
-        # Preparar os dados como JSONB
+        # Definir a tabela e coluna de JSON
+        veiculos_table = Table('brt_gps_data', metadata,
+                               autoload_with=engine,
+                               autoload=True)
+
+        # Preparando os dados para serem inseridos
         for veiculo in data["veiculos"]:
-            # Aqui você pode inserir cada "veiculo" como JSON na tabela
-            sql = """
-                INSERT INTO brt_gps_data (veiculo) 
-                VALUES (%s);
-            """
-            with engine.connect() as conn:
-                conn.execute(sql, (str(veiculo),))  # Convertendo o JSON para string antes de inserir
+            # Inserindo o JSON completo na coluna "veiculo"
+            conn.execute(veiculos_table.insert().values(veiculo=veiculo))
+
+        conn.close()
 
     except Exception as e:
         raise ValueError(f"Erro ao carregar dados para o PostgreSQL: {e}")
