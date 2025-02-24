@@ -1,13 +1,11 @@
 from prefect import Flow, task
 import requests
 import pandas as pd
-from sqlalchemy import create_engine, Table, MetaData
 from datetime import datetime
+from sqlalchemy import create_engine
 import os
-from prefect.schedules import IntervalSchedule
+import time
 
-# Schedule: Execute a cada minuto
-schedule = IntervalSchedule(interval=pd.Timedelta(minutes=1))
 
 # Extração
 @task
@@ -20,34 +18,36 @@ def fetch_data():
     except requests.exceptions.RequestException as e:
         raise ValueError(f"Erro ao buscar dados: {e}")
 
+# Processamento
+@task
+def process_data(data):
+    try:
+        df = pd.json_normalize(data)
+        filename = f"brt_data_{datetime.now().strftime('%Y%m%d%H%M%S')}.csv"
+        df.to_csv(filename, index=False)
+        return filename
+    except Exception as e:
+        raise ValueError(f"Erro ao processar dados: {e}")
+
 # Carregamento incremental para o PostgreSQL
 @task
-def load_to_postgresql(data):
+def load_to_postgresql(csv_file):
     try:
-        # Criar a conexão com o PostgreSQL usando SQLAlchemy
+        if not os.path.exists(csv_file):
+            raise FileNotFoundError(f"O arquivo {csv_file} não foi encontrado.")
+        df = pd.read_csv(csv_file)
         engine = create_engine('postgresql://user:password@localhost:5433/postgres?client_encoding=utf8')
-        metadata = MetaData()
-        conn = engine.connect()
-
-        # Definir a tabela e coluna de JSON
-        veiculos_table = Table('brt_gps_data', metadata,
-                               autoload_with=engine,
-                               autoload=True)
-
-        # Preparando os dados para serem inseridos
-        for veiculo in data["veiculos"]:
-            # Inserindo o JSON completo na coluna "veiculo"
-            conn.execute(veiculos_table.insert().values(veiculo=veiculo))
-
-        conn.close()
+        df.to_sql('brt_gps_data', con=engine, if_exists='append', index=False)
+        df.to_sql('brt_gps_data', con=engine, if_exists='append', index=False, method='multi', encoding='utf-8')
 
     except Exception as e:
         raise ValueError(f"Erro ao carregar dados para o PostgreSQL: {e}")
 
 # Criação do fluxo do Prefect
-with Flow("brt_gps_flow", schedule=schedule) as flow:
+with Flow("brt_gps_flow") as flow:
     data = fetch_data()
-    load_to_postgresql(data)
+    filename = process_data(data)
+    load_to_postgresql(filename)
 
 # Rodando o fluxo
 if __name__ == "__main__":
