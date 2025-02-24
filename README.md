@@ -14,12 +14,12 @@ Este projeto consiste em capturar dados da API do BRT, processá-los e armazená
 
 2. Instale as dependências:
     ```
-    pip install -r requirements.txt
+    pip install -r requirements
     ```
 
 3. Rode o flow do Prefect:
     ```
-    python flows/brt_gps_flow.py
+    python prefect_flows/brt_gps_flow.py
     ```
 
 4. Para rodar o banco de dados PostgreSQL, utilize o Docker:
