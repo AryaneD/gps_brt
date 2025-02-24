@@ -40,7 +40,8 @@ def load_to_postgresql(csv_file):
             raise FileNotFoundError(f"O arquivo {csv_file} não foi encontrado.")
         df = pd.read_csv(csv_file)
         engine = create_engine('postgresql://user:password@localhost:5433/postgres?client_encoding=utf8')
-        df.to_sql('brt_gps_data', con=engine, if_exists='append', index=False)
+        df.to_sql('brt_gps_data', con=engine, if_exists='append', index=False, method='multi', encoding='utf-8')
+
     except Exception as e:
         raise ValueError(f"Erro ao carregar dados para o PostgreSQL: {e}")
 
