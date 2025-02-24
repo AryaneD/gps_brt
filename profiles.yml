@@ -5,7 +5,7 @@ brt_gps_project:
       type: postgres
       host: localhost
       user: postgres
-      password: password  # Adicione sua senha aqui
+      password: password
       port: 5433
       dbname: postgres
       schema: public

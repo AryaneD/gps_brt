@@ -8,11 +8,8 @@ psycopg2
 # Para trabalhar com o PostgreSQL e melhorar o suporte
 psycopg2-binary
 
-# Para decodificação de arquivos, caso precise lidar com diferentes codificações
+# Para decodificação de arquivos, para lidar com diferentes codificações
 chardet
 
-# Dependência para o uso de Docker no Python (caso precise)
+# Dependência para o uso de Docker no Python
 docker
-
-# Caso precise de outras dependências como manipulação de data e hora
-python-dateutil

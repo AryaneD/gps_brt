@@ -1,6 +1,10 @@
 version: 2
+
 sources:
-  - name: brt_gps_data
-    schema: public
+  - name: public
+    database: postgres  # Substitua pelo nome do seu banco de dados
+    schema: public               # O schema onde a tabela 'brt_gps_data' está localizada
     tables:
       - name: brt_gps_data
+        description: "Tabela que contém os dados dos veículos do BRT"
+

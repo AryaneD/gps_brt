@@ -5,14 +5,7 @@ Este projeto consiste em capturar dados da API do BRT, processá-los e armazená
 
 ## Como Rodar o Projeto
 
-1. Crie e ative um ambiente virtual (opcional):
-    ```
-    python -m venv venv
-    source venv/bin/activate  # Linux/macOS
-    venv\Scripts\activate     # Windows
-    ```
-
-2. Instale as dependências:
+1. Instale as dependências:
     ```
     pip install -r requirements
     ```
