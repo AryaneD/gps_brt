@@ -89,3 +89,228 @@ Runtime Error
 [0m04:42:31.207051 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B9D5970C30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B9D5790830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B9D4685E10>]}
 [0m04:42:31.207524 [debug] [MainThread]: Flushing usage events
 [0m04:42:31.767235 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m04:48:48.227949 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015E7B791160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015E796D51D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015E7958B750>]}
+
+
+============================== 04:48:48.233596 | 42d3ff4e-d3b7-4904-a450-500e396f8b21 ==============================
+[0m04:48:48.233596 [info ] [MainThread]: Running with dbt=1.9.2
+[0m04:48:48.234712 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\aryan\\OneDrive\\Documentos\\GitHub\\gps_brt', 'debug': 'False', 'warn_error': 'None', 'log_path': 'C:\\Users\\aryan\\OneDrive\\Documentos\\GitHub\\gps_brt\\logs', 'fail_fast': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'invocation_command': 'dbt debug', 'log_format': 'default', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m04:48:48.274387 [info ] [MainThread]: dbt version: 1.9.2
+[0m04:48:48.275411 [info ] [MainThread]: python version: 3.13.2
+[0m04:48:48.276227 [info ] [MainThread]: python path: C:\Users\aryan\AppData\Local\Programs\Python\Python313\python.exe
+[0m04:48:48.277008 [info ] [MainThread]: os info: Windows-11-10.0.22631-SP0
+[0m04:48:48.379290 [info ] [MainThread]: Using profiles dir at C:\Users\aryan\OneDrive\Documentos\GitHub\gps_brt
+[0m04:48:48.380390 [info ] [MainThread]: Using profiles.yml file at C:\Users\aryan\OneDrive\Documentos\GitHub\gps_brt\profiles.yml
+[0m04:48:48.381554 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\aryan\OneDrive\Documentos\GitHub\gps_brt\dbt_project.yml
+[0m04:48:48.383812 [info ] [MainThread]: adapter type: postgres
+[0m04:48:48.384650 [info ] [MainThread]: adapter version: 1.9.0
+[0m04:48:48.388851 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `source-paths` config has been renamed to `model-paths`. Please update your
+`dbt_project.yml` configuration to reflect this change.
+[0m04:48:48.389827 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '42d3ff4e-d3b7-4904-a450-500e396f8b21', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015E7C8336F0>]}
+[0m04:48:48.390387 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `data-paths` config has been renamed to `seed-paths`. Please update your
+`dbt_project.yml` configuration to reflect this change.
+[0m04:48:48.391156 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '42d3ff4e-d3b7-4904-a450-500e396f8b21', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015E7C9256A0>]}
+[0m04:48:48.517129 [info ] [MainThread]: Configuration:
+[0m04:48:48.517928 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m04:48:48.518664 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m04:48:48.519610 [info ] [MainThread]: Required dependencies:
+[0m04:48:48.520214 [debug] [MainThread]: Executing "git --help"
+[0m04:48:48.524098 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m04:48:48.525144 [info ] [MainThread]: Connection:
+[0m04:48:48.525943 [info ] [MainThread]:   host: localhost
+[0m04:48:48.526711 [info ] [MainThread]:   port: 5433
+[0m04:48:48.527620 [info ] [MainThread]:   user: postgres
+[0m04:48:48.528177 [info ] [MainThread]:   database: postgres
+[0m04:48:48.528920 [info ] [MainThread]:   schema: public
+[0m04:48:48.529503 [info ] [MainThread]:   connect_timeout: 10
+[0m04:48:48.530091 [info ] [MainThread]:   role: None
+[0m04:48:48.530672 [info ] [MainThread]:   search_path: None
+[0m04:48:48.531374 [info ] [MainThread]:   keepalives_idle: 0
+[0m04:48:48.532314 [info ] [MainThread]:   sslmode: None
+[0m04:48:48.532954 [info ] [MainThread]:   sslcert: None
+[0m04:48:48.533467 [info ] [MainThread]:   sslkey: None
+[0m04:48:48.534143 [info ] [MainThread]:   sslrootcert: None
+[0m04:48:48.534728 [info ] [MainThread]:   application_name: dbt
+[0m04:48:48.535319 [info ] [MainThread]:   retries: 1
+[0m04:48:48.536297 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m04:48:48.798669 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m04:48:48.860929 [debug] [MainThread]: Using postgres connection "debug"
+[0m04:48:48.861315 [debug] [MainThread]: On debug: select 1 as id
+[0m04:48:48.861585 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m04:48:48.926149 [debug] [MainThread]: SQL status: SELECT 1 in 0.064 seconds
+[0m04:48:48.927134 [debug] [MainThread]: On debug: Close
+[0m04:48:48.927486 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m04:48:48.928385 [info ] [MainThread]: [31m1 check failed:[0m
+[0m04:48:48.929088 [info ] [MainThread]: Error from git --help: Could not find command, ensure it is in the user's PATH and that the user has permissions to run it: "git"
+
+[0m04:48:48.930826 [debug] [MainThread]: Command `dbt debug` failed at 04:48:48.930474 after 0.94 seconds
+[0m04:48:48.931327 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m04:48:48.931725 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015E7C773C50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015E7C773D50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000015E7B6C2990>]}
+[0m04:48:48.932095 [debug] [MainThread]: Flushing usage events
+[0m04:48:49.605694 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m04:51:50.290919 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D37A5A1160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D3784E51D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D37839B750>]}
+
+
+============================== 04:51:50.297247 | 761e4af6-b68c-4ac4-9c26-8d4ce0fa3057 ==============================
+[0m04:51:50.297247 [info ] [MainThread]: Running with dbt=1.9.2
+[0m04:51:50.298577 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\aryan\\OneDrive\\Documentos\\GitHub\\gps_brt', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': 'C:\\Users\\aryan\\OneDrive\\Documentos\\GitHub\\gps_brt\\logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'invocation_command': 'dbt debug', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m04:51:50.333442 [info ] [MainThread]: dbt version: 1.9.2
+[0m04:51:50.334164 [info ] [MainThread]: python version: 3.13.2
+[0m04:51:50.334880 [info ] [MainThread]: python path: C:\Users\aryan\AppData\Local\Programs\Python\Python313\python.exe
+[0m04:51:50.335499 [info ] [MainThread]: os info: Windows-11-10.0.22631-SP0
+[0m04:51:50.435603 [info ] [MainThread]: Using profiles dir at C:\Users\aryan\OneDrive\Documentos\GitHub\gps_brt
+[0m04:51:50.436388 [info ] [MainThread]: Using profiles.yml file at C:\Users\aryan\OneDrive\Documentos\GitHub\gps_brt\profiles.yml
+[0m04:51:50.436987 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\aryan\OneDrive\Documentos\GitHub\gps_brt\dbt_project.yml
+[0m04:51:50.438688 [info ] [MainThread]: adapter type: postgres
+[0m04:51:50.439452 [info ] [MainThread]: adapter version: 1.9.0
+[0m04:51:50.445590 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `source-paths` config has been renamed to `model-paths`. Please update your
+`dbt_project.yml` configuration to reflect this change.
+[0m04:51:50.446370 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '761e4af6-b68c-4ac4-9c26-8d4ce0fa3057', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D37B58F6F0>]}
+[0m04:51:50.446808 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `data-paths` config has been renamed to `seed-paths`. Please update your
+`dbt_project.yml` configuration to reflect this change.
+[0m04:51:50.447324 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '761e4af6-b68c-4ac4-9c26-8d4ce0fa3057', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D37B6C56A0>]}
+[0m04:51:50.561820 [info ] [MainThread]: Configuration:
+[0m04:51:50.562831 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m04:51:50.563960 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m04:51:50.564599 [info ] [MainThread]: Required dependencies:
+[0m04:51:50.565151 [debug] [MainThread]: Executing "git --help"
+[0m04:51:50.568329 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m04:51:50.569617 [info ] [MainThread]: Connection:
+[0m04:51:50.570360 [info ] [MainThread]:   host: localhost
+[0m04:51:50.570982 [info ] [MainThread]:   port: 5433
+[0m04:51:50.571472 [info ] [MainThread]:   user: postgres
+[0m04:51:50.571974 [info ] [MainThread]:   database: postgres
+[0m04:51:50.572470 [info ] [MainThread]:   schema: public
+[0m04:51:50.572949 [info ] [MainThread]:   connect_timeout: 10
+[0m04:51:50.573444 [info ] [MainThread]:   role: None
+[0m04:51:50.574085 [info ] [MainThread]:   search_path: None
+[0m04:51:50.574789 [info ] [MainThread]:   keepalives_idle: 0
+[0m04:51:50.575576 [info ] [MainThread]:   sslmode: None
+[0m04:51:50.576057 [info ] [MainThread]:   sslcert: None
+[0m04:51:50.576680 [info ] [MainThread]:   sslkey: None
+[0m04:51:50.577410 [info ] [MainThread]:   sslrootcert: None
+[0m04:51:50.578085 [info ] [MainThread]:   application_name: dbt
+[0m04:51:50.578695 [info ] [MainThread]:   retries: 1
+[0m04:51:50.579421 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m04:51:50.835944 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m04:51:50.898086 [debug] [MainThread]: Using postgres connection "debug"
+[0m04:51:50.898462 [debug] [MainThread]: On debug: select 1 as id
+[0m04:51:50.898729 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m04:51:50.963210 [debug] [MainThread]: SQL status: SELECT 1 in 0.064 seconds
+[0m04:51:50.964179 [debug] [MainThread]: On debug: Close
+[0m04:51:50.964552 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m04:51:50.965310 [info ] [MainThread]: [31m1 check failed:[0m
+[0m04:51:50.966693 [info ] [MainThread]: Error from git --help: Could not find command, ensure it is in the user's PATH and that the user has permissions to run it: "git"
+
+[0m04:51:50.968634 [debug] [MainThread]: Command `dbt debug` failed at 04:51:50.968350 after 0.89 seconds
+[0m04:51:50.969387 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m04:51:50.969982 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D37B583C50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D37B583D50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D37A4D2990>]}
+[0m04:51:50.970498 [debug] [MainThread]: Flushing usage events
+[0m04:51:51.570702 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m04:52:11.183840 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022763301160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000227612451D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000227610FB750>]}
+
+
+============================== 04:52:11.189157 | 43260189-5ce8-4255-b6be-0868f7d447d8 ==============================
+[0m04:52:11.189157 [info ] [MainThread]: Running with dbt=1.9.2
+[0m04:52:11.190316 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': 'C:\\Users\\aryan\\OneDrive\\Documentos\\GitHub\\gps_brt', 'log_path': 'C:\\Users\\aryan\\OneDrive\\Documentos\\GitHub\\gps_brt\\logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'invocation_command': 'dbt debug', 'log_format': 'default', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m04:52:11.218787 [info ] [MainThread]: dbt version: 1.9.2
+[0m04:52:11.219670 [info ] [MainThread]: python version: 3.13.2
+[0m04:52:11.220516 [info ] [MainThread]: python path: C:\Users\aryan\AppData\Local\Programs\Python\Python313\python.exe
+[0m04:52:11.221117 [info ] [MainThread]: os info: Windows-11-10.0.22631-SP0
+[0m04:52:11.310252 [info ] [MainThread]: Using profiles dir at C:\Users\aryan\OneDrive\Documentos\GitHub\gps_brt
+[0m04:52:11.311318 [info ] [MainThread]: Using profiles.yml file at C:\Users\aryan\OneDrive\Documentos\GitHub\gps_brt\profiles.yml
+[0m04:52:11.312234 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\aryan\OneDrive\Documentos\GitHub\gps_brt\dbt_project.yml
+[0m04:52:11.313955 [info ] [MainThread]: adapter type: postgres
+[0m04:52:11.314759 [info ] [MainThread]: adapter version: 1.9.0
+[0m04:52:11.319090 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `source-paths` config has been renamed to `model-paths`. Please update your
+`dbt_project.yml` configuration to reflect this change.
+[0m04:52:11.319877 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '43260189-5ce8-4255-b6be-0868f7d447d8', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000227643336F0>]}
+[0m04:52:11.320457 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `data-paths` config has been renamed to `seed-paths`. Please update your
+`dbt_project.yml` configuration to reflect this change.
+[0m04:52:11.321173 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '43260189-5ce8-4255-b6be-0868f7d447d8', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000227644256A0>]}
+[0m04:52:11.439167 [info ] [MainThread]: Configuration:
+[0m04:52:11.440051 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m04:52:11.440667 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m04:52:11.441101 [info ] [MainThread]: Required dependencies:
+[0m04:52:11.441543 [debug] [MainThread]: Executing "git --help"
+[0m04:52:11.607535 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m04:52:11.608103 [debug] [MainThread]: STDERR: "b''"
+[0m04:52:11.608474 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m04:52:11.609220 [info ] [MainThread]: Connection:
+[0m04:52:11.609876 [info ] [MainThread]:   host: localhost
+[0m04:52:11.610341 [info ] [MainThread]:   port: 5433
+[0m04:52:11.610710 [info ] [MainThread]:   user: postgres
+[0m04:52:11.611135 [info ] [MainThread]:   database: postgres
+[0m04:52:11.611803 [info ] [MainThread]:   schema: public
+[0m04:52:11.612440 [info ] [MainThread]:   connect_timeout: 10
+[0m04:52:11.613197 [info ] [MainThread]:   role: None
+[0m04:52:11.613749 [info ] [MainThread]:   search_path: None
+[0m04:52:11.614168 [info ] [MainThread]:   keepalives_idle: 0
+[0m04:52:11.614856 [info ] [MainThread]:   sslmode: None
+[0m04:52:11.615533 [info ] [MainThread]:   sslcert: None
+[0m04:52:11.616164 [info ] [MainThread]:   sslkey: None
+[0m04:52:11.616641 [info ] [MainThread]:   sslrootcert: None
+[0m04:52:11.617070 [info ] [MainThread]:   application_name: dbt
+[0m04:52:11.617508 [info ] [MainThread]:   retries: 1
+[0m04:52:11.618163 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m04:52:11.900456 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m04:52:11.962192 [debug] [MainThread]: Using postgres connection "debug"
+[0m04:52:11.962568 [debug] [MainThread]: On debug: select 1 as id
+[0m04:52:11.962838 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m04:52:12.031684 [debug] [MainThread]: SQL status: SELECT 1 in 0.069 seconds
+[0m04:52:12.032621 [debug] [MainThread]: On debug: Close
+[0m04:52:12.032983 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m04:52:12.033955 [info ] [MainThread]: [32mAll checks passed![0m
+[0m04:52:12.035784 [debug] [MainThread]: Command `dbt debug` succeeded at 04:52:12.035542 after 1.01 seconds
+[0m04:52:12.036174 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m04:52:12.036645 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000227642E3C50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000227642E3D50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022763BFB7A0>]}
+[0m04:52:12.037087 [debug] [MainThread]: Flushing usage events
+[0m04:52:12.555179 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m05:00:30.351192 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F574DD5160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F572CB11D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F572BBB750>]}
+
+
+============================== 05:00:30.357239 | e5232716-f4ab-4aa7-9bf0-cc7ee0e4e171 ==============================
+[0m05:00:30.357239 [info ] [MainThread]: Running with dbt=1.9.2
+[0m05:00:30.358502 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\aryan\\OneDrive\\Documentos\\GitHub\\gps_brt', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'C:\\Users\\aryan\\OneDrive\\Documentos\\GitHub\\gps_brt\\logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'invocation_command': 'dbt run --models transform_brt_gps', 'send_anonymous_usage_stats': 'True'}
+[0m05:00:30.458607 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `source-paths` config has been renamed to `model-paths`. Please update your
+`dbt_project.yml` configuration to reflect this change.
+[0m05:00:30.459727 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': 'e5232716-f4ab-4aa7-9bf0-cc7ee0e4e171', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F575C06EA0>]}
+[0m05:00:30.460663 [warn ] [MainThread]: [[33mWARNING[0m]: Deprecated functionality
+The `data-paths` config has been renamed to `seed-paths`. Please update your
+`dbt_project.yml` configuration to reflect this change.
+[0m05:00:30.461475 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': 'e5232716-f4ab-4aa7-9bf0-cc7ee0e4e171', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F575D8E9C0>]}
+[0m05:00:30.644562 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'e5232716-f4ab-4aa7-9bf0-cc7ee0e4e171', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F575B7DA50>]}
+[0m05:00:30.723373 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'e5232716-f4ab-4aa7-9bf0-cc7ee0e4e171', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F574D03200>]}
+[0m05:00:30.725070 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m05:00:31.072565 [debug] [MainThread]: checksum: 12b12750b70de726cfd89136b8e24afc3f3e77597a97bff40ab7e5f9b39d5e18, vars: {}, profile: , target: , version: 1.9.2
+[0m05:00:31.073852 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m05:00:31.074599 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'e5232716-f4ab-4aa7-9bf0-cc7ee0e4e171', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F576FD5E10>]}
+[0m05:00:33.364453 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'e5232716-f4ab-4aa7-9bf0-cc7ee0e4e171', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F5771A1570>]}
+[0m05:00:33.463356 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\aryan\OneDrive\Documentos\GitHub\gps_brt\target\manifest.json
+[0m05:00:33.471432 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\aryan\OneDrive\Documentos\GitHub\gps_brt\target\semantic_manifest.json
+[0m05:00:33.547642 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'e5232716-f4ab-4aa7-9bf0-cc7ee0e4e171', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F575EC4410>]}
+[0m05:00:33.548478 [info ] [MainThread]: Found 433 macros
+[0m05:00:33.549471 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'e5232716-f4ab-4aa7-9bf0-cc7ee0e4e171', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F5772B0D60>]}
+[0m05:00:33.551244 [warn ] [MainThread]: The selection criterion 'transform_brt_gps' does not match any enabled nodes
+[0m05:00:33.553403 [warn ] [MainThread]: Nothing to do. Try checking your model configs and model specification args
+[0m05:00:33.554818 [debug] [MainThread]: Command end result
+[0m05:00:33.580191 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\aryan\OneDrive\Documentos\GitHub\gps_brt\target\manifest.json
+[0m05:00:33.583120 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\aryan\OneDrive\Documentos\GitHub\gps_brt\target\semantic_manifest.json
+[0m05:00:33.587161 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\aryan\OneDrive\Documentos\GitHub\gps_brt\target\run_results.json
+[0m05:00:33.588395 [debug] [MainThread]: Command `dbt run` succeeded at 05:00:33.588238 after 3.43 seconds
+[0m05:00:33.588796 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F5771F05F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F577183C80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F5751D3A50>]}
+[0m05:00:33.589237 [debug] [MainThread]: Flushing usage events
+[0m05:00:34.288635 [debug] [MainThread]: An error was encountered while trying to flush usage events
