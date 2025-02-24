@@ -352,3 +352,41 @@ Compilation Error
 [0m05:12:48.402841 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002C4372CF2F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002C4372CF200>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002C438891710>]}
 [0m05:12:48.403185 [debug] [MainThread]: Flushing usage events
 [0m05:12:48.965806 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m05:23:19.192977 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC504B1160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC4E3F51D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC4E2AB750>]}
+
+
+============================== 05:23:19.198687 | 4d45aee4-153f-4367-ab9f-26a262f92f8e ==============================
+[0m05:23:19.198687 [info ] [MainThread]: Running with dbt=1.9.2
+[0m05:23:19.200182 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\aryan\\OneDrive\\Documentos\\GitHub\\gps_brt', 'version_check': 'True', 'fail_fast': 'False', 'log_path': 'C:\\Users\\aryan\\OneDrive\\Documentos\\GitHub\\gps_brt\\logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'invocation_command': 'dbt run --models transform_brt_gps', 'log_format': 'default', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m05:23:19.508114 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '4d45aee4-153f-4367-ab9f-26a262f92f8e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC525F1940>]}
+[0m05:23:19.582006 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '4d45aee4-153f-4367-ab9f-26a262f92f8e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC503849E0>]}
+[0m05:23:19.583861 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m05:23:19.993053 [debug] [MainThread]: checksum: 12b12750b70de726cfd89136b8e24afc3f3e77597a97bff40ab7e5f9b39d5e18, vars: {}, profile: , target: , version: 1.9.2
+[0m05:23:20.039235 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+[0m05:23:20.040923 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '4d45aee4-153f-4367-ab9f-26a262f92f8e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC5125DE50>]}
+[0m05:23:21.930651 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.brt_gps_project.transform_brt_gps' (dbt_models\transform_brt_gps.sql) depends on a source named 'public.brt_gps_data' which was not found
+[0m05:23:21.933412 [debug] [MainThread]: Command `dbt run` failed at 05:23:21.933256 after 2.95 seconds
+[0m05:23:21.933800 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC5147F200>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC5147FD40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001CC52981C50>]}
+[0m05:23:21.934165 [debug] [MainThread]: Flushing usage events
+[0m05:23:22.470466 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m05:25:05.692860 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000226CF0C5160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000226CCFA11D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000226CCEAB750>]}
+
+
+============================== 05:25:05.697958 | ae3dc1be-4c29-4b49-b398-e1de15a1c5c1 ==============================
+[0m05:25:05.697958 [info ] [MainThread]: Running with dbt=1.9.2
+[0m05:25:05.699099 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\aryan\\OneDrive\\Documentos\\GitHub\\gps_brt', 'debug': 'False', 'version_check': 'True', 'log_path': 'C:\\Users\\aryan\\OneDrive\\Documentos\\GitHub\\gps_brt\\logs', 'warn_error': 'None', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'invocation_command': 'dbt source freshness', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m05:25:06.026546 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'ae3dc1be-4c29-4b49-b398-e1de15a1c5c1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000226D1261A70>]}
+[0m05:25:06.115553 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'ae3dc1be-4c29-4b49-b398-e1de15a1c5c1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000226CEF909E0>]}
+[0m05:25:06.117411 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m05:25:06.384871 [debug] [MainThread]: checksum: 12b12750b70de726cfd89136b8e24afc3f3e77597a97bff40ab7e5f9b39d5e18, vars: {}, profile: , target: , version: 1.9.2
+[0m05:25:06.420829 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+[0m05:25:06.421941 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'ae3dc1be-4c29-4b49-b398-e1de15a1c5c1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000226CFE6DE50>]}
+[0m05:25:08.781140 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.brt_gps_project.transform_brt_gps' (dbt_models\transform_brt_gps.sql) depends on a source named 'public.brt_gps_data' which was not found
+[0m05:25:08.782807 [debug] [MainThread]: Command `dbt source freshness` failed at 05:25:08.782572 after 3.32 seconds
+[0m05:25:08.783508 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000226D15634D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000226D1562D50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000226D1555D30>]}
+[0m05:25:08.783946 [debug] [MainThread]: Flushing usage events
+[0m05:25:09.339374 [debug] [MainThread]: An error was encountered while trying to flush usage events

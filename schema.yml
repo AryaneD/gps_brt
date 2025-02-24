@@ -1,0 +1,6 @@
+version: 2
+sources:
+  - name: brt_gps_data
+    schema: public
+    tables:
+      - name: brt_gps_data
