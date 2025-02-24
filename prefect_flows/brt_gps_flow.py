@@ -1,13 +1,15 @@
 from prefect import Flow, task
 import requests
 import pandas as pd
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, Table, MetaData
+from datetime import datetime
+import os
 from prefect.schedules import IntervalSchedule
 
 # Schedule: Execute a cada minuto
 schedule = IntervalSchedule(interval=pd.Timedelta(minutes=1))
 
-# Extração de dados diretamente da API
+# Extração
 @task
 def fetch_data():
     try:
@@ -22,24 +24,29 @@ def fetch_data():
 @task
 def load_to_postgresql(data):
     try:
-        # Normalizando os dados JSON para um DataFrame
-        df = pd.json_normalize(data)
-        
         # Criar a conexão com o PostgreSQL usando SQLAlchemy
         engine = create_engine('postgresql://user:password@localhost:5433/postgres?client_encoding=utf8')
-        
-        # Carregar os dados para a tabela do PostgreSQL (incremental)
-        df.to_sql('brt_gps_data', con=engine, if_exists='append', index=False, method='multi', encoding='utf-8')
+        metadata = MetaData()
+        conn = engine.connect()
+
+        # Definir a tabela e coluna de JSON
+        veiculos_table = Table('brt_gps_data', metadata,
+                               autoload_with=engine,
+                               autoload=True)
+
+        # Preparando os dados para serem inseridos
+        for veiculo in data["veiculos"]:
+            # Inserindo o JSON completo na coluna "veiculo"
+            conn.execute(veiculos_table.insert().values(veiculo=veiculo))
+
+        conn.close()
 
     except Exception as e:
         raise ValueError(f"Erro ao carregar dados para o PostgreSQL: {e}")
 
 # Criação do fluxo do Prefect
 with Flow("brt_gps_flow", schedule=schedule) as flow:
-    # Passo de extração
     data = fetch_data()
-    
-    # Passo de carregamento para o banco de dados
     load_to_postgresql(data)
 
 # Rodando o fluxo
