@@ -1,0 +1,13 @@
+brt_gps_project:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: postgres
+      password: password  # Adicione sua senha aqui
+      port: 5433
+      dbname: postgres
+      schema: public
+      threads: 1
+

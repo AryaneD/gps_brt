@@ -1,0 +1,91 @@
+[0m04:18:16.293485 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D787A21160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D7859651D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D78581B750>]}
+
+
+============================== 04:18:16.299738 | 4ac9119c-4392-4109-83d1-9d34174f8709 ==============================
+[0m04:18:16.299738 [info ] [MainThread]: Running with dbt=1.9.2
+[0m04:18:16.300765 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'C:\\Users\\aryan\\OneDrive\\Documentos\\GitHub\\gps_brt\\logs', 'profiles_dir': 'C:\\Users\\aryan\\.dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'log_format': 'default', 'target_path': 'None', 'invocation_command': 'dbt debug --project-dir C:\\Users\\aryan\\OneDrive\\Documentos\\GitHub\\gps_brt', 'send_anonymous_usage_stats': 'True'}
+[0m04:18:16.338122 [info ] [MainThread]: dbt version: 1.9.2
+[0m04:18:16.338959 [info ] [MainThread]: python version: 3.13.2
+[0m04:18:16.339661 [info ] [MainThread]: python path: C:\Users\aryan\AppData\Local\Programs\Python\Python313\python.exe
+[0m04:18:16.340233 [info ] [MainThread]: os info: Windows-11-10.0.22631-SP0
+[0m04:18:16.344077 [info ] [MainThread]: Using profiles dir at C:\Users\aryan\.dbt
+[0m04:18:16.345131 [info ] [MainThread]: Using profiles.yml file at C:\Users\aryan\.dbt\profiles.yml
+[0m04:18:16.345990 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\aryan\OneDrive\Documentos\GitHub\gps_brt\dbt_project.yml
+[0m04:18:16.466818 [info ] [MainThread]: Configuration:
+[0m04:18:16.467587 [info ] [MainThread]:   profiles.yml file [[31mERROR invalid[0m]
+[0m04:18:16.468187 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m04:18:16.468942 [info ] [MainThread]: Required dependencies:
+[0m04:18:16.469749 [debug] [MainThread]: Executing "git --help"
+[0m04:18:16.473501 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m04:18:16.474706 [info ] [MainThread]: Connection test skipped since no profile was found
+[0m04:18:16.475400 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m04:18:16.475971 [info ] [MainThread]: Profile loading failed for the following reason:
+Runtime Error
+  Could not find profile named 'brt_db'
+
+
+[0m04:18:16.477182 [info ] [MainThread]: Error from git --help: Could not find command, ensure it is in the user's PATH and that the user has permissions to run it: "git"
+
+[0m04:18:16.479144 [debug] [MainThread]: Command `dbt debug` failed at 04:18:16.478957 after 0.43 seconds
+[0m04:18:16.479681 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D789B50050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D789B5C950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D788AE9BF0>]}
+[0m04:18:16.480227 [debug] [MainThread]: Flushing usage events
+[0m04:18:17.172000 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m04:42:30.651955 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B9D3561160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B9D149D1D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B9D135B750>]}
+
+
+============================== 04:42:30.657759 | f9bbf1dc-a6dc-4979-ab65-ff8eb9321890 ==============================
+[0m04:42:30.657759 [info ] [MainThread]: Running with dbt=1.9.2
+[0m04:42:30.658711 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\aryan\\OneDrive\\Documentos\\GitHub\\gps_brt', 'version_check': 'True', 'debug': 'False', 'log_path': 'logs', 'fail_fast': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt debug', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m04:42:30.691163 [info ] [MainThread]: dbt version: 1.9.2
+[0m04:42:30.691983 [info ] [MainThread]: python version: 3.13.2
+[0m04:42:30.692639 [info ] [MainThread]: python path: C:\Users\aryan\AppData\Local\Programs\Python\Python313\python.exe
+[0m04:42:30.693289 [info ] [MainThread]: os info: Windows-11-10.0.22631-SP0
+[0m04:42:30.783643 [info ] [MainThread]: Using profiles dir at C:\Users\aryan\OneDrive\Documentos\GitHub\gps_brt
+[0m04:42:30.784529 [info ] [MainThread]: Using profiles.yml file at C:\Users\aryan\OneDrive\Documentos\GitHub\gps_brt\profiles.yml
+[0m04:42:30.785159 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\aryan\OneDrive\Documentos\GitHub\gps_brt\dbt_project.yml\dbt_project.yml
+[0m04:42:30.786694 [info ] [MainThread]: adapter type: postgres
+[0m04:42:30.787444 [info ] [MainThread]: adapter version: 1.9.0
+[0m04:42:30.788521 [info ] [MainThread]: Configuration:
+[0m04:42:30.789281 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m04:42:30.789725 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m04:42:30.790387 [info ] [MainThread]: Required dependencies:
+[0m04:42:30.791135 [debug] [MainThread]: Executing "git --help"
+[0m04:42:30.793661 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m04:42:30.794242 [info ] [MainThread]: Connection:
+[0m04:42:30.794921 [info ] [MainThread]:   host: localhost
+[0m04:42:30.795567 [info ] [MainThread]:   port: 5433
+[0m04:42:30.796148 [info ] [MainThread]:   user: postgres
+[0m04:42:30.796659 [info ] [MainThread]:   database: postgres
+[0m04:42:30.797279 [info ] [MainThread]:   schema: public
+[0m04:42:30.797897 [info ] [MainThread]:   connect_timeout: 10
+[0m04:42:30.798483 [info ] [MainThread]:   role: None
+[0m04:42:30.799007 [info ] [MainThread]:   search_path: None
+[0m04:42:30.799772 [info ] [MainThread]:   keepalives_idle: 0
+[0m04:42:30.800426 [info ] [MainThread]:   sslmode: None
+[0m04:42:30.801160 [info ] [MainThread]:   sslcert: None
+[0m04:42:30.801744 [info ] [MainThread]:   sslkey: None
+[0m04:42:30.802266 [info ] [MainThread]:   sslrootcert: None
+[0m04:42:30.802793 [info ] [MainThread]:   application_name: dbt
+[0m04:42:30.803304 [info ] [MainThread]:   retries: 1
+[0m04:42:30.804073 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m04:42:31.061098 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m04:42:31.129748 [debug] [MainThread]: Using postgres connection "debug"
+[0m04:42:31.130163 [debug] [MainThread]: On debug: select 1 as id
+[0m04:42:31.130414 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m04:42:31.198605 [debug] [MainThread]: SQL status: SELECT 1 in 0.068 seconds
+[0m04:42:31.199547 [debug] [MainThread]: On debug: Close
+[0m04:42:31.199881 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m04:42:31.200635 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m04:42:31.202034 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <C:\Users\aryan\OneDrive\Documentos\GitHub\gps_brt\dbt_project.yml\dbt_project.yml> not found
+
+[0m04:42:31.203403 [info ] [MainThread]: Error from git --help: Could not find command, ensure it is in the user's PATH and that the user has permissions to run it: "git"
+
+[0m04:42:31.205873 [debug] [MainThread]: Command `dbt debug` failed at 04:42:31.205527 after 0.77 seconds
+[0m04:42:31.206587 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m04:42:31.207051 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B9D5970C30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B9D5790830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B9D4685E10>]}
+[0m04:42:31.207524 [debug] [MainThread]: Flushing usage events
+[0m04:42:31.767235 [debug] [MainThread]: An error was encountered while trying to flush usage events
