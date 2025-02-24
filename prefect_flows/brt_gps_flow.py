@@ -3,7 +3,12 @@ import requests
 import pandas as pd
 from datetime import datetime
 from sqlalchemy import create_engine
-import os
+import re
+
+# Função para remover caracteres especiais
+def remove_special_characters(text):
+    # Usando expressão regular para manter apenas letras, números e espaços
+    return re.sub(r'[^a-zA-Z0-9\s]', '', text)
 
 # Defina a tarefa para capturar os dados
 @task
@@ -31,10 +36,16 @@ def process_data(data):
 @task
 def load_to_postgresql(csv_file):
     try:
-        #df = pd.read_csv(csv_file)
+        # Carregar o CSV com a codificação ISO-8859-1
         df = pd.read_csv(csv_file, encoding='ISO-8859-1')
+        
+        # Remover caracteres especiais de todas as colunas
+        df = df.applymap(lambda x: remove_special_characters(str(x)) if isinstance(x, str) else x)
+        
+        # Conectar ao PostgreSQL
         engine = create_engine('postgresql://user:password@127.0.0.1:5433/brt_db')
-        # Especificando os tipos de dados de acordo com o DataFrame
+        
+        # Carregar o DataFrame no banco de dados
         df.to_sql('brt_gps_data', con=engine, if_exists='append', index=False)
     except Exception as e:
         raise ValueError(f"Erro ao carregar os dados no PostgreSQL: {e}")
