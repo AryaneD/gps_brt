@@ -2,11 +2,8 @@ name: 'brt_gps_project'
 version: '1.0.0'
 config-version: 2
 profile: 'brt_gps_project'
-source-paths: ["models"]
-analysis-paths: ["analyses"]
-test-paths: ["tests"]
-data-paths: ["data"]
-macro-paths: ["macros"]
+model-paths: ["dbt_models"]
+seed-paths: ["data"]
 log-path: logs
 target-path: target
 clean-targets:
