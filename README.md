@@ -9,15 +9,17 @@ Este projeto consiste em capturar dados da API do BRT, processá-los e armazená
     ```
     pip install -r requirements
     ```
+2. Configure um banco de dados PostgreSQL e utilize o Docker:
+    ```
+    docker-compose up
+    ```
 
 3. Rode o flow do Prefect:
     ```
     python prefect_flows/brt_gps_flow.py
     ```
 
-4. Para rodar o banco de dados PostgreSQL, utilize o Docker:
+4. O DBT pode ser rodado para aplicar as transformações.
     ```
-    docker-compose up
+    dbt run
     ```
-
-5. O DBT pode ser rodado para aplicar as transformações.
