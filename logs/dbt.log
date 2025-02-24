@@ -314,3 +314,22 @@ The `data-paths` config has been renamed to `seed-paths`. Please update your
 [0m05:00:33.588796 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F5771F05F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F577183C80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F5751D3A50>]}
 [0m05:00:33.589237 [debug] [MainThread]: Flushing usage events
 [0m05:00:34.288635 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m05:06:54.906014 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023720C95160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002371EBD51D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002371EA8B750>]}
+
+
+============================== 05:06:54.911743 | ceb41247-2a46-447f-9860-1959084af898 ==============================
+[0m05:06:54.911743 [info ] [MainThread]: Running with dbt=1.9.2
+[0m05:06:54.913055 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'C:\\Users\\aryan\\OneDrive\\Documentos\\GitHub\\gps_brt\\logs', 'debug': 'False', 'profiles_dir': 'C:\\Users\\aryan\\OneDrive\\Documentos\\GitHub\\gps_brt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt run --models transform_brt_gps', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m05:06:55.249760 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'ceb41247-2a46-447f-9860-1959084af898', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023721E01940>]}
+[0m05:06:55.331491 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'ceb41247-2a46-447f-9860-1959084af898', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023720B649E0>]}
+[0m05:06:55.333311 [info ] [MainThread]: Registered adapter: postgres=1.9.0
+[0m05:06:55.594380 [debug] [MainThread]: checksum: 12b12750b70de726cfd89136b8e24afc3f3e77597a97bff40ab7e5f9b39d5e18, vars: {}, profile: , target: , version: 1.9.2
+[0m05:06:55.637287 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+[0m05:06:55.638154 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'ceb41247-2a46-447f-9860-1959084af898', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023721A41E50>]}
+[0m05:06:56.583174 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.brt_gps_project.transform_brt_gps' (dbt_models\transform_brt_gps.sql) depends on a node named 'brt_gps_data' which was not found
+[0m05:06:56.584749 [debug] [MainThread]: Command `dbt run` failed at 05:06:56.584522 after 1.91 seconds
+[0m05:06:56.585409 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023721C5B2F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023721C5B200>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023723161710>]}
+[0m05:06:56.585957 [debug] [MainThread]: Flushing usage events
+[0m05:06:57.226406 [debug] [MainThread]: An error was encountered while trying to flush usage events
