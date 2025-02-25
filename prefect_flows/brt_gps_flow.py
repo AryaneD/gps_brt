@@ -1,10 +1,14 @@
 from prefect import task, flow
+from prefect.client.schemas.schedules import IntervalSchedule
 import requests
 import pandas as pd
 from datetime import datetime
 from sqlalchemy import create_engine
 import shutil
 import os
+from datetime import timedelta
+import time
+
 
 @task #Tarefa para capturar os dados da API
 def fetch_data():
@@ -45,6 +49,13 @@ def brt_gps_flow():
     # Etapa 4: Carregar os dados no PostgreSQL
     load_to_postgresql(csv_in_docker)
 
-# Rodando o fluxo
+# Agendamento de 1 minuto
+schedule = IntervalSchedule(interval=timedelta(minutes=1))
+
+# Loop para execução contínua
 if __name__ == "__main__":
-    brt_gps_flow()
+    while True:
+        print("Executando fluxo...")
+        brt_gps_flow()
+        print("Aguardando 1 minuto para a próxima execução...")
+        time.sleep(60) 
