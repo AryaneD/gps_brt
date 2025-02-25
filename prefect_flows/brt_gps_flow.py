@@ -61,8 +61,8 @@ if __name__ == "__main__":
         print("Executando fluxo Prefect...")
         brt_gps_flow()  # Executa o fluxo do Prefect
 
-        print("Executando dbt run...")
-        subprocess.run(["dbt", "run"], check=True)  # Executa dbt run no terminal
+        #print("Executando dbt run...")
+        #subprocess.run(["dbt", "run"], check=True)  # Executa dbt run no terminal
 
         print("Aguardando 1 minuto para a próxima execução...")
         time.sleep(60)  # Aguarda 1 minuto
