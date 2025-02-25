@@ -2,12 +2,12 @@ from prefect import task, flow
 from prefect.client.schemas.schedules import IntervalSchedule
 import requests
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timedelta
 from sqlalchemy import create_engine
 import shutil
 import os
-from datetime import timedelta
 import time
+import subprocess
 
 
 @task #Tarefa para capturar os dados da API
@@ -52,10 +52,19 @@ def brt_gps_flow():
 # Agendamento de 1 minuto
 schedule = IntervalSchedule(interval=timedelta(minutes=1))
 
-# Loop para execução contínua
+
 if __name__ == "__main__":
-    while True:
-        print("Executando fluxo...")
-        brt_gps_flow()
+    start_time = datetime.now()  # Registra o horário de início
+    max_duration = timedelta(hours=48)  # Define o tempo máximo de execução
+
+    while datetime.now() - start_time < max_duration:
+        print("Executando fluxo Prefect...")
+        brt_gps_flow()  # Executa o fluxo do Prefect
+
+        print("Executando dbt run...")
+        subprocess.run(["dbt", "run"], check=True)  # Executa dbt run no terminal
+
         print("Aguardando 1 minuto para a próxima execução...")
-        time.sleep(60) 
+        time.sleep(60)  # Aguarda 1 minuto
+
+    print("Tempo máximo de 48 horas atingido. Parando execução.")
