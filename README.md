@@ -14,12 +14,7 @@ Este projeto consiste em capturar dados da API do BRT, processá-los e armazená
     docker-compose up
     ```
 
-3. Rode o flow do Prefect:
+3. Rode o flow do Prefect e dbt run:
     ```
     python prefect_flows/brt_gps_flow.py
-    ```
-
-4. O DBT pode ser rodado para aplicar as transformações.
-    ```
-    dbt run
     ```
